@@ -15,6 +15,7 @@ export class Visitor {
     }
 
     calculateTriangleField(triangleInstance) {
+        // It would be a great idea to replace all tirangleInstance, squareInstance... names with a generic figureInstance
         this.throwIfNotType(triangleInstance, Triangle);
         const field = triangleInstance.a * triangleInstance.height * 0.5;
         triangleInstance.field = field;
@@ -31,15 +32,15 @@ export class Visitor {
         squareInstance.field = field;
     }
     calculateSquareCircumference(squareInstance) {
-        this.throwIfNotType(squareInstance, Square;
-        const circumference = squareInstance.a * 4;
+        this.throwIfNotType(squareInstance, Square);
+        const circumference = squareInstance.edge * 4;
         squareInstance.circumference = circumference;
     }
 
     calculateCircleField(circleInstance) {
         this.throwIfNotType(circleInstance, Circle);
-        const field = squareInstance.radius * squareInstance.radius * PI;
-        squareInstance.field = field;
+        const field = circleInstance.radius * circleInstance.radius * PI;
+        circleInstance.field = field;
     }
     calculateCircleCircumference(circleInstance) {
         this.throwIfNotType(circleInstance, Circle);
@@ -54,7 +55,7 @@ export class Visitor {
     }
     calculateTrapezeCircumference(trapezeInstance) {
         this.throwIfNotType(trapezeInstance, Trapeze);
-        const circumference = trapezeInstance.a + trapezeInstance.b + trapezeInstance.c;
+        const circumference = trapezeInstance.a + trapezeInstance.b + trapezeInstance.c + trapezeInstance.d;
         trapezeInstance.circumference = circumference;
     }  
 
@@ -65,7 +66,7 @@ export class Visitor {
         rectangleInstance.field = field;
     }
     calculateRectangleCircumference(rectangleInstance) {
-        this.throwIfNotType(trectangleInstance, Rectangle);
+        this.throwIfNotType(rectangleInstance, Rectangle);
         const circumference = rectangleInstance.width * 2 + rectangleInstance.height * 2;
         rectangleInstance.circumference = circumference;
     }
@@ -76,6 +77,7 @@ export class Visitor {
             this.calculateCircleCircumference.bind(this),
             this.calculateRectangleCircumference.bind(this),
             this.calculateTrapezeCircumference.bind(this),
+            this.calculateSquareCircumference.bind(this),
         ]
     }
 
@@ -85,6 +87,7 @@ export class Visitor {
             this.calculateRectangleField.bind(this),
             this.calculateTriangleField.bind(this),
             this.calculateTrapezeField.bind(this),
+            this.calculateSquareField.bind(this),
         ]
     }
 

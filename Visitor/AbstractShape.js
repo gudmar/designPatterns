@@ -4,4 +4,5 @@ export default class Shape {
     get dimensions() {};
     get field() {};
     get circumference() {};
+    accept(visitor) { visitor.visit(this) }
 }
