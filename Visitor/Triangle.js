@@ -2,10 +2,10 @@ import Shape from "./AbstractShape";
 
 export default class Triangle extends Shape {
     constructor({ height, a, b, c }){
-        super(this);
+        super();
         this.dimensions = { height, a, b, c }
-        this.field = null;
-        this.circumference = null;
+        this._field = null;
+        this._circumference = null;
     }
     set dimensions({ height, a, b, c }) {
         this.height = height;
@@ -14,6 +14,9 @@ export default class Triangle extends Shape {
         this.c = c;
     };
     get dimensions() { return { height, a, b, c };}
-    get field() { return this.field }
-    get circumference() { return this.circumference }
+    get field() { return this._field }
+    get circumference() { return this._circumference }
+    set field(v) {this._field = v}
+    set circumference(v) {this._circumference = v}
+
 }

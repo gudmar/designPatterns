@@ -2,10 +2,10 @@ import Shape from "./AbstractShape";
 
 export default class Trapeze extends Shape {
     constructor({ height, a, b, c, d }){
-        super(this);
+        super();
         this.dimensions = { height, a, b, c, d }
-        this.field = null;
-        this.circumference = null;
+        this._field = null;
+        this._circumference = null;
     }
     set dimensions({ height, a, b, c, d }) {
         this.height = height;
@@ -15,6 +15,9 @@ export default class Trapeze extends Shape {
         this.d = d;
     }
     get dimensions() { return { height, a, b, c, d };}
-    get field() { return this.field }
-    get circumference() { return this.circumference }
+    get field() { return this._field }
+    get circumference() { return this._circumference }
+    set field(v) {this._field = v}
+    set circumference(v) {this._circumference = v}
+
 }
